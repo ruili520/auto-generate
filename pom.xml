@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.rl520</groupId>
     <artifactId>auto-generate</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>auto-generate</name>
     <packaging>jar</packaging>
     <description>自动创建并且复制相关的实体类/文件</description>
@@ -22,7 +22,7 @@
 
     <developers>
         <developer>
-            <name>wang wenbo</name>
+            <name>wang wen bo</name>
             <email>wb1028@163.com</email>
             <url>${projectUrl}</url>
         </developer>

@@ -1,8 +1,8 @@
-package cn.rl520.autogenerate;
+package cn.rl520.autogenerate.utils.controller;
 
-import cn.rl520.autogenerate.dto.Initial;
-import cn.rl520.autogenerate.service.InitialService;
-import cn.rl520.autogenerate.vo.InitialVo;
+import cn.rl520.autogenerate.utils.dto.Initial;
+import cn.rl520.autogenerate.utils.service.InitialService;
+import cn.rl520.autogenerate.utils.vo.InitialVo;
 import cn.rl520.response.result.aop.RlResponseResult;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -17,28 +17,28 @@ import java.util.List;
 public class InitialController {
 
     @Autowired
-    private InitialService deviceService;
+    private InitialService initialService;
     
 
     @RequestMapping(value = "saveInitial",method = RequestMethod.POST)
     public void saveInitial(@RequestBody Initial initial){
-        deviceService.saveInitial(initial);
+        initialService.saveInitial(initial);
     }
 
 
     @RequestMapping(value = "deleteInitial",method = RequestMethod.POST)
     public void deleteInitial(@RequestBody Initial initial){
-        deviceService.deleteInitial(initial);
+        initialService.deleteInitial(initial);
     }
 
     @RequestMapping(value = "getInitialList",method = RequestMethod.POST)
     public List<InitialVo> getInitialList(@RequestBody Initial initial){
-        return deviceService.getInitialList(initial);
+        return initialService.getInitialList(initial);
     }
 
     @RequestMapping(value = "getInitialPage",method = RequestMethod.POST)
     public PageInfo<InitialVo> getInitialPage(@RequestBody Initial initial){
-        return deviceService.getInitialPage(initial);
+        return initialService.getInitialPage(initial);
     }
 
 }

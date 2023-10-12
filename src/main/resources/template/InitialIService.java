@@ -1,9 +1,7 @@
-package cn.rl520.autogenerate.service;
+package cn.rl520.autogenerate.utils.service;
 
-import cn.rl520.autogenerate.dto.Initial;
-import cn.rl520.autogenerate.dto.InitialLogs;
-import cn.rl520.autogenerate.vo.InitialLogsVo;
-import cn.rl520.autogenerate.vo.InitialVo;
+import cn.rl520.autogenerate.utils.dto.Initial;
+import cn.rl520.autogenerate.utils.vo.InitialVo;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;

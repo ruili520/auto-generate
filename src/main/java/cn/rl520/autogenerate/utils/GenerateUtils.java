@@ -77,7 +77,9 @@ public class GenerateUtils<T> {
                 res.append(line + "\n");
             }
             reader.close();
-            String text = res.toString().replaceAll(GenerateUtils.class.getPackage().getName(),t.getPackage().getName()).replaceAll(initialize.getReplaceName(), initialize.getTargetName()).replaceAll(initialize.getReplaceName().substring(0,1).toLowerCase(Locale.ROOT)+initialize.getReplaceName().substring(1), initialize.getTargetName().substring(0,1).toLowerCase(Locale.ROOT)+initialize.getTargetName().substring(1));
+            System.out.println(res.toString().replace(GenerateUtils.class.getPackage().getName(),"test"));
+            String text = res.toString().replace(GenerateUtils.class.getPackage().getName(),t.getPackage().getName()).replaceAll(initialize.getReplaceName(), initialize.getTargetName()).replaceAll(initialize.getReplaceName().substring(0,1).toLowerCase(Locale.ROOT)+initialize.getReplaceName().substring(1), initialize.getTargetName().substring(0,1).toLowerCase(Locale.ROOT)+initialize.getTargetName().substring(1));
+            System.out.println(text);
             BufferedWriter writer = new BufferedWriter(new FileWriter(fullPathName+initialize.getTargetName()+fileType+".java"));
             writer.write(text);
             writer.flush();

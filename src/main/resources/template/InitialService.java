@@ -1,10 +1,8 @@
-package cn.rl520.autogenerate;
+package cn.rl520.autogenerate.utils.service;
 
-import cn.rl520.autogenerate.dto.Initial;
-import cn.rl520.autogenerate.dto.InitialLogs;
-import cn.rl520.autogenerate.mapper.InitialMapper;
-import cn.rl520.autogenerate.vo.InitialLogsVo;
-import cn.rl520.autogenerate.vo.InitialVo;
+import cn.rl520.autogenerate.utils.dto.Initial;
+import cn.rl520.autogenerate.utils.mapper.InitialMapper;
+import cn.rl520.autogenerate.utils.vo.InitialVo;
 import com.github.f4b6a3.ulid.UlidCreator;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
