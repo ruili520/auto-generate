@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.rl520</groupId>
     <artifactId>auto-generate</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>auto-generate</name>
     <packaging>jar</packaging>
     <description>自动创建并且复制相关的实体类/文件</description>

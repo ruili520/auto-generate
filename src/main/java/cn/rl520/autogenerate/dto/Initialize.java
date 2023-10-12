@@ -9,6 +9,11 @@ import lombok.Data;
 public class Initialize {
 
     /**
+     * 项目名称，默认为空，当合集项目时使用
+     */
+    private String projectName = "";
+
+    /**
      * 原始文件的路径，用于替换其他文件内容使用-暂未启用或者用于web路径拼接
      */
     private String sourceFilePath = System.getProperty("user.dir")+"/";
@@ -121,10 +126,36 @@ public class Initialize {
      */
     private String controllerPath = "controller/";
 
+    /**
+     * mapper所在模块路径
+     */
+    private String mapperModulePath = "";
+
+    /**
+     * service路径
+     */
+    private String serviceModulePath = "";
+
+    /**
+     * service路径
+     */
+    private String IServiceModulePath = "";
+
+    /**
+     * controller路径
+     */
+    private String controllerModulePath = "";
+
     public Initialize() {
     }
 
     public Initialize(String replaceName, String targetName) {
+        this.replaceName = replaceName;
+        this.targetName = targetName;
+    }
+
+    public Initialize(String projectName, String replaceName, String targetName) {
+        this.projectName = projectName;
         this.replaceName = replaceName;
         this.targetName = targetName;
     }

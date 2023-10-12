@@ -39,23 +39,24 @@ public class GenerateUtils<T> {
     public String cpJavaFile(Boolean inFile,String fileType) throws IOException {
         log.info("开始执行JAVA文件的复制修改操作,需要替换的实体类名称={}",initialize.getTargetName());
         String javaPath = "/src/main/java/"+t.getPackage().getName().replaceAll("\\.","/")+"/";
-        String fullPathName =initialize.getTargetJavaPath()+javaPath;
+        String fullPathName =initialize.getSourceFilePath()+initialize.getProjectName()+"/";
         switch (fileType){
             case "Mapper":
-                fullPathName = fullPathName+initialize.getMapperPath();
+                fullPathName = fullPathName+initialize.getMapperModulePath()+javaPath+initialize.getMapperPath();
                 break;
             case "IService":
-                fullPathName = fullPathName+initialize.getIServicePath();
+                fullPathName = fullPathName+initialize.getIServiceModulePath()+javaPath+initialize.getIServicePath();
                 break;
             case "Service":
-                fullPathName = fullPathName+initialize.getServicePath();
+                fullPathName = fullPathName+initialize.getServiceModulePath()+javaPath+initialize.getServicePath();
                 break;
             case "Controller":
-                fullPathName = fullPathName+initialize.getControllerPath();
+                fullPathName = fullPathName+initialize.getControllerModulePath()+javaPath+initialize.getControllerPath();
                 break;
             default:
                 break;
         }
+        fullPathName = fullPathName.replaceAll("//","/");
         //判断文件夹是否存在
         File file = new File(fullPathName);
         if(!file.exists()){
@@ -77,9 +78,7 @@ public class GenerateUtils<T> {
                 res.append(line + "\n");
             }
             reader.close();
-            System.out.println(res.toString().replace(GenerateUtils.class.getPackage().getName(),"test"));
             String text = res.toString().replace(GenerateUtils.class.getPackage().getName(),t.getPackage().getName()).replaceAll(initialize.getReplaceName(), initialize.getTargetName()).replaceAll(initialize.getReplaceName().substring(0,1).toLowerCase(Locale.ROOT)+initialize.getReplaceName().substring(1), initialize.getTargetName().substring(0,1).toLowerCase(Locale.ROOT)+initialize.getTargetName().substring(1));
-            System.out.println(text);
             BufferedWriter writer = new BufferedWriter(new FileWriter(fullPathName+initialize.getTargetName()+fileType+".java"));
             writer.write(text);
             writer.flush();
@@ -147,6 +146,17 @@ public class GenerateUtils<T> {
             msg = msg + ",controller文件成功";
         }
         return msg;
+    }
+
+    /**
+     * test
+     */
+    public String test(){
+        String javaPath = "/src/main/java/"+t.getPackage().getName().replaceAll("\\.","/")+"/";
+        System.out.println(initialize.getProjectName());
+        System.out.println(initialize.getSourceFilePath()+initialize.getProjectName());
+        System.out.println((initialize.getSourceFilePath()+initialize.getProjectName()+javaPath).replace("//","/"));
+        return "success";
     }
 
 
